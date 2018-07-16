@@ -27,7 +27,7 @@ public class Nyquist {
 	 * ------
 	 * @param bandwidth
 	 * @param signalCountNumber
-	 * @return channelCpacity
+	 * @return channelCapcity
 	 */
 	public static long nyquistChannelCapacity(long bandwidth, long signalCountNumber) {
 		long channelCapacity = -1;
