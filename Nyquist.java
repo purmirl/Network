@@ -41,7 +41,7 @@ public class Nyquist {
 	 * @param number
 	 * @return
 	 */
-	public static long log2(long number) {
+	private static long log2(long number) {
 		long result = -1;
 		result = (long) (Math.log(number) / Math.log(2));
 		
