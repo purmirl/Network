@@ -17,7 +17,7 @@ public class Nyquist {
 	
 	/**
 	 * Nyquist Channel Capacity Logic.
-	 * " C = 2B * log2 (M)"
+	 * " C = 2B * log2 (M) "
 	 * C : Channel Capacity
 	 * B = Bandwidth
 	 * M = signalCountNumber
