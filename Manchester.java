@@ -81,6 +81,9 @@ public class Manchester {
 			}else if(this.previousSignal.equals("UP_TO_DOWN")) {
 				this.previousSignal = "UP_TO_DOWN";
 				return this.downwardTransition;
+			}else {
+				this.previousSignal = "UP_TO_DOWN";
+				return this.downwardTransition;
 			}
 		}else if(digitalData == 1) {
 			if(this.previousSignal.equals("DOWN_TO_UP")) {
@@ -89,13 +92,13 @@ public class Manchester {
 			}else if(this.previousSignal.equals("UP_TO_DOWN")) {
 				this.previousSignal = "UP_TO_DOWN";
 				return this.downwardTransition;
+			}else {
+				this.previousSignal = "UP_TO_DOWN";
+				return this.downwardTransition;
 			}
 		}else {
 			this.previousSignal = "ERROR";
 			return this.errorTransition;
 		}
-		
-		this.previousSignal = "ERROR";
-		return this.errorTransition;
 	}
 }
