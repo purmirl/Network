@@ -6,6 +6,8 @@
 
 package Protocol;
 
+import java.util.Arrays;
+
 /**
  * HDLC Class
  * @author PeTrA
@@ -34,7 +36,7 @@ public class Hdlc {
 	private byte[] addressStream;	//	address, 8bits or 16bits(extended).
 	private byte[] controlFieldStream;	//	frame type, 8bits.
 	private byte[] informationDataStream;	//	I, S frame, variable.
-	private byte[] manageInformationDataStream;	//	U frame, variable.
+	private byte[] managementInformationDataStream;	//	U frame, variable.
 	private byte[] crcStream;	//	16 bits or 32 bits(extended).
 	private byte[] lastFlagStream;	//	8 bits
 	
@@ -44,6 +46,22 @@ public class Hdlc {
 	private String addressData;
 	private String frameData;
 	
+	/**
+	 * Data stream length.
+	 */
+	private int byteStreamLength;
+	private int firstFlagStreamLength;
+	private int addressStreamLength;
+	private int controlFieldStreamLength;
+	private int informationDataStreamLength;
+	private int managementInformationDataStreamLength;
+	private int crcStreamLength;
+	private int lastFlagStreamLength;
+	
+	/**
+	 * Count number for parsing.
+	 */
+	private int parsingBufferNumber;
 	
 	public Hdlc(byte[] _byteStream) {
 		init();
@@ -56,18 +74,44 @@ public class Hdlc {
 		this.addressStream = null;
 		this.controlFieldStream = null;
 		this.informationDataStream = null;
-		this.manageInformationDataStream = null;
+		this.managementInformationDataStream = null;
 		this.crcStream = null;
 		this.lastFlagStream = null;
 		this.addressData = "NO DATA";
 		this.frameData = "NO DATA";
+		this.byteStreamLength = 0;
+		this.firstFlagStreamLength = 0;
+		this.addressStreamLength = 0;
+		this.controlFieldStreamLength = 0;
+		this.informationDataStreamLength = 0;
+		this.managementInformationDataStreamLength = 0;
+		this.crcStreamLength = 0;
+		this.lastFlagStreamLength = 0;
+		this.parsingBufferNumber = 0;
 	}
 	
 	private void parsingByteStream(byte[] _byteStream) {
-		this.byteStream = _byteStream;
-		this.firstFlagStream = hexStringToByteArray("1E");	// flag : 01111110
-		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+		setByteStream(_byteStream);
+		setFirstFlagStream(_byteStream);	// flag : 01111110
 		
+		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+	}
+	
+	private void setByteStream(byte[] _byteStream) {
+		this.byteStream = _byteStream;
+	}
+	
+	/**
+	 * Parsing first flag stream.
+	 * @param _byteStream
+	 */
+	private void setFirstFlagStream(byte[] _byteStream) {
+		if(Arrays.equals(getSpecificByteArray(_byteStream, 0, 0), hexStringToByteArray("1E"))) {
+			this.firstFlagStream = new byte[this.firstFlagStreamLength];
+			this.firstFlagStream = getSpecificByteArray(_byteStream, 0, 0);
+		}else {
+			systemError("First flage parsing is failed.");
+		}
 	}
 	
 	/**
@@ -80,7 +124,6 @@ public class Hdlc {
 	private byte[] getSpecificByteArray(byte[] _byteStream, int firstIndex, int lastIndex) {
 		int length = lastIndex - firstIndex + 1;
 		byte[] result = new byte[length];
-		
 		for(int i = 0; i < length; i++) {
 			result[i] = _byteStream[firstIndex + i];
 		}
@@ -116,5 +159,10 @@ public class Hdlc {
 		}
 		
 		return result;
+	}
+	
+	private void systemError(String message) {
+		System.out.println(message);
+		System.exit(0);
 	}
 }
