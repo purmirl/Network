@@ -30,13 +30,13 @@ public class Hdlc {
 	 * Stream value.
 	 */
 	private byte[] byteStream;
-	private byte[] firstFlagStream;
-	private byte[] addressStream;
-	private byte[] controlFieldStream;
-	private byte[] informationDataStream;
-	private byte[] manageInformationDataStream;
-	private byte[] crcStream;
-	private byte[] lastFlagStream;
+	private byte[] firstFlagStream;	//	preamble, 8bits.
+	private byte[] addressStream;	//	address, 8bits or 16bits(extended).
+	private byte[] controlFieldStream;	//	frame type, 8bits.
+	private byte[] informationDataStream;	//	I, S frame, variable.
+	private byte[] manageInformationDataStream;	//	U frame, variable.
+	private byte[] crcStream;	//	16 bits or 32 bits.
+	private byte[] lastFlagStream;	//	8 bits
 	
 	/**
 	 * Data value.
