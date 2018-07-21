@@ -93,6 +93,7 @@ public class Hdlc {
 	private void parsingByteStream(byte[] _byteStream) {
 		setByteStream(_byteStream);
 		setFirstFlagStream(_byteStream);	// flag : 01111110
+		setAddressStream(_byteStream);	
 		
 		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
 	}
@@ -106,11 +107,29 @@ public class Hdlc {
 	 * @param _byteStream
 	 */
 	private void setFirstFlagStream(byte[] _byteStream) {
+		this.firstFlagStreamLength = 1;
 		if(Arrays.equals(getSpecificByteArray(_byteStream, 0, 0), hexStringToByteArray("1E"))) {
 			this.firstFlagStream = new byte[this.firstFlagStreamLength];
 			this.firstFlagStream = getSpecificByteArray(_byteStream, 0, 0);
 		}else {
 			systemError("First flage parsing is failed.");
+		}
+		this.parsingBufferNumber = this.parsingBufferNumber + this.firstFlagStreamLength;
+	}
+	
+	/**
+	 * Parsing address stream.
+	 * @param _byteStream
+	 */
+	private void setAddressStream(byte[] _byteStream) {
+		if((getSpecificByteArray(_byteStream, 1, 1)[0] % 2) == 0){	// address field's last bit is 0.
+			this.addressStreamLength = 1;
+			this.addressStream = getSpecificByteArray(_byteStream, 1, 2);
+			this.parsingBufferNumber = this.parsingBufferNumber + this.addressStreamLength;
+		}else {	// address field's last bit is 1 : extended address field.
+			this.addressStreamLength = 2;
+			this.addressStream = getSpecificByteArray(_byteStream, 1, 3);
+			this.parsingBufferNumber = this.parsingBufferNumber + this.addressStreamLength;
 		}
 	}
 	
