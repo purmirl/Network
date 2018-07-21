@@ -26,6 +26,31 @@ package Protocol;
  *  http://www.ktword.co.kr/abbr_view.php/abbr_view.php?m_temp1=89&m_search=%ED%95%98
  */
 public class Hdlc {
-	public Hdlc() {}
+	/**
+	 * Stream value
+	 */
+	private byte[] byteStream;
+	private byte[] firstFlagSream;
+	private byte[] addressSream;
+	private byte[] controlFieldSream;
+	private byte[] informationDataSream;
+	private byte[] manageInformationDataSream;
+	private byte[] crcStream;
+	private byte[] lastFlagStream;
+	
+	/**
+	 * Data value
+	 */
+	private String addressData;
+	private String frameData;
+	
+	
+	public Hdlc(byte[] _byteStream) {
+		this.byteStream = _byteStream;
+	}
+	
+	
+	
+	
 	
 }
