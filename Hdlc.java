@@ -30,11 +30,11 @@ public class Hdlc {
 	 * Stream value
 	 */
 	private byte[] byteStream;
-	private byte[] firstFlagSream;
-	private byte[] addressSream;
-	private byte[] controlFieldSream;
-	private byte[] informationDataSream;
-	private byte[] manageInformationDataSream;
+	private byte[] firstFlagStream;
+	private byte[] addressStream;
+	private byte[] controlFieldStream;
+	private byte[] informationDataStream;
+	private byte[] manageInformationDataStream;
 	private byte[] crcStream;
 	private byte[] lastFlagStream;
 	
@@ -46,7 +46,21 @@ public class Hdlc {
 	
 	
 	public Hdlc(byte[] _byteStream) {
+		init();
 		this.byteStream = _byteStream;
+	}
+	
+	public void init() {
+		this.byteStream = null;
+		this.firstFlagStream = null;
+		this.addressStream = null;
+		this.controlFieldStream = null;
+		this.informationDataStream = null;
+		this.manageInformationDataStream = null;
+		this.crcStream = null;
+		this.lastFlagStream = null;
+		this.addressData = "NO DATA";
+		this.frameData = "NO DATA";
 	}
 	
 	
