@@ -27,7 +27,7 @@ package Protocol;
  */
 public class Hdlc {
 	/**
-	 * Stream value
+	 * Stream value.
 	 */
 	private byte[] byteStream;
 	private byte[] firstFlagStream;
@@ -39,7 +39,7 @@ public class Hdlc {
 	private byte[] lastFlagStream;
 	
 	/**
-	 * Data value
+	 * Data value.
 	 */
 	private String addressData;
 	private String frameData;
@@ -48,6 +48,8 @@ public class Hdlc {
 	public Hdlc(byte[] _byteStream) {
 		init();
 		this.byteStream = _byteStream;
+		this.firstFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
 	}
 	
 	public void init() {
@@ -63,8 +65,33 @@ public class Hdlc {
 		this.frameData = "NO DATA";
 	}
 	
+	/**
+	 * Transfer byte array to hex String.
+	 * @param _byteStream
+	 * @return
+	 */
+	private String byteArrayToHexString(byte[] _byteStream) {
+		StringBuilder stringBuilder = new StringBuilder();
+		String result = "";
+		for(byte _byte : _byteStream) {
+			stringBuilder.append(String.format("%02X", _byte&0xff));
+		}
+		result = stringBuilder.toString();
+		
+		return result;
+	}
 	
-	
-	
-	
+	/**
+	 * Transfer String to byte array.
+	 * @param _hexString
+	 * @return
+	 */
+	private byte[] hexStringToByteArray(String _hexString) {
+		byte[] result = new byte[(_hexString.length() / 2)];
+		for(int i = 0; i < _hexString.length(); i+=2) {
+			result[i / 2] = (byte)((Character.digit(_hexString.charAt(i), 16) << 4) + Character.digit(_hexString.charAt(i + 1), 16));
+		}
+		
+		return result;
+	}
 }
