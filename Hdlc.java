@@ -35,7 +35,7 @@ public class Hdlc {
 	private byte[] controlFieldStream;	//	frame type, 8bits.
 	private byte[] informationDataStream;	//	I, S frame, variable.
 	private byte[] manageInformationDataStream;	//	U frame, variable.
-	private byte[] crcStream;	//	16 bits or 32 bits.
+	private byte[] crcStream;	//	16 bits or 32 bits(extended).
 	private byte[] lastFlagStream;	//	8 bits
 	
 	/**
@@ -47,9 +47,7 @@ public class Hdlc {
 	
 	public Hdlc(byte[] _byteStream) {
 		init();
-		this.byteStream = _byteStream;
-		this.firstFlagStream = hexStringToByteArray("1E");	// flag : 01111110
-		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+		parsingByteStream(_byteStream);
 	}
 	
 	public void init() {
@@ -63,6 +61,31 @@ public class Hdlc {
 		this.lastFlagStream = null;
 		this.addressData = "NO DATA";
 		this.frameData = "NO DATA";
+	}
+	
+	private void parsingByteStream(byte[] _byteStream) {
+		this.byteStream = _byteStream;
+		this.firstFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+		this.lastFlagStream = hexStringToByteArray("1E");	// flag : 01111110
+		
+	}
+	
+	/**
+	 * Get specific data of byte array.
+	 * @param _byteStream
+	 * @param firstIndex
+	 * @param lastIndex
+	 * @return
+	 */
+	private byte[] getSpecificByteArray(byte[] _byteStream, int firstIndex, int lastIndex) {
+		int length = lastIndex - firstIndex + 1;
+		byte[] result = new byte[length];
+		
+		for(int i = 0; i < length; i++) {
+			result[i] = _byteStream[firstIndex + i];
+		}
+		
+		return result;
 	}
 	
 	/**
