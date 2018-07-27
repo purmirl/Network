@@ -25,6 +25,32 @@ package Function;
  * Reference : https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
  */
 public class Queue {
-	public Queue() {}
+	private QueueNode headQueueNode;
+	private QueueNode trailQueueNode;
+	private int queueLength;
+	
+	public Queue() {
+		this.headQueueNode = null;
+		this.trailQueueNode = null;
+		this.queueLength = 0;
+	}
+	
+	public void enqueue(QueueNode _queueNode) {
+		this.trailQueueNode.getPrevQueueNode().setNextQueueNode(_queueNode);
+		_queueNode.setPrevQueueNode(this.trailQueueNode.getPrevQueueNode());
+		this.trailQueueNode.setPrevQueueNode(_queueNode);
+		_queueNode.setNextQueueNode(this.trailQueueNode);
+	}
+	
+	public void dequeue() {
+		QueueNode output = this.headQueueNode.getNextQueueNode();
+		
+		
+	}
+	
+	public int length() {
+		return this.queueLength;
+	}
+	
 	
 }
