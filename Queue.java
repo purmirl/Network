@@ -35,6 +35,12 @@ public class Queue {
 		this.queueLength = 0;
 	}
 	
+	/**
+	 * Enqueue function.
+	 * @param _queueNode
+	 * 
+	 * Add one node into the queue.
+	 */
 	public void enqueue(QueueNode _queueNode) {
 		this.trailQueueNode.getPrevQueueNode().setNextQueueNode(_queueNode);
 		_queueNode.setPrevQueueNode(this.trailQueueNode.getPrevQueueNode());
@@ -42,10 +48,17 @@ public class Queue {
 		_queueNode.setNextQueueNode(this.trailQueueNode);
 	}
 	
-	public void dequeue() {
+	/**
+	 * Dequeue function.
+	 * @return
+	 * 
+	 * Get one node from the queue.
+	 */
+	public QueueNode dequeue() {
 		QueueNode output = this.headQueueNode.getNextQueueNode();
-		
-		
+		this.headQueueNode.getNextQueueNode().getNextQueueNode().setPrevQueueNode(this.headQueueNode);
+		this.headQueueNode.setNextQueueNode(this.headQueueNode.getNextQueueNode().getNextQueueNode());
+		return output;
 	}
 	
 	public int length() {
