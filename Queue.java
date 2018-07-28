@@ -46,6 +46,7 @@ public class Queue {
 		_queueNode.setPrevQueueNode(this.trailQueueNode.getPrevQueueNode());
 		this.trailQueueNode.setPrevQueueNode(_queueNode);
 		_queueNode.setNextQueueNode(this.trailQueueNode);
+		this.queueLength++;
 	}
 	
 	/**
@@ -58,12 +59,11 @@ public class Queue {
 		QueueNode output = this.headQueueNode.getNextQueueNode();
 		this.headQueueNode.getNextQueueNode().getNextQueueNode().setPrevQueueNode(this.headQueueNode);
 		this.headQueueNode.setNextQueueNode(this.headQueueNode.getNextQueueNode().getNextQueueNode());
+		this.queueLength--;
 		return output;
 	}
 	
 	public int length() {
 		return this.queueLength;
 	}
-	
-	
 }
