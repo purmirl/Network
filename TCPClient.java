@@ -27,7 +27,6 @@ public class TCPClient {
 	private BufferedReader input;
 	private OutputStream output;
 	
-	
 	public TCPClient(String _ip, int _port) {
 		this.ip = _ip;
 		this.port = _port;
