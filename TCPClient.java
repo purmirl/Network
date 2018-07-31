@@ -18,7 +18,7 @@ import java.net.UnknownHostException;
  * @author PeTrA
  * 
  * TCP Client Pseudo code.
- * In consist connection, try to thread function.
+ * In persistent connection, try to thread function.
  */
 public class TCPClient {
 	private String ip;
