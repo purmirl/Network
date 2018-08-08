@@ -39,8 +39,10 @@ public class UDPClient {
 		this.port = _port;
 	}
 	
-	public void receive() {
-		
+	public void receive() throws SocketException {
+		while(true) {
+			DatagramSocket socket = new DatagramSocket(1234);
+		}
 	}
 	
 	/**
