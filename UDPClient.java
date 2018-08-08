@@ -6,6 +6,7 @@
 
 package Function;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -42,10 +43,17 @@ public class UDPClient {
 		
 	}
 	
-	public void send(String _data) throws SocketException, UnknownHostException {
+	/**
+	 * Send String data into the udp datagram socket function.
+	 * @param _data
+	 * @throws IOException
+	 */
+	public void send(String _data) throws IOException {
 		DatagramSocket socket = new DatagramSocket();
 		InetAddress address = InetAddress.getByName(this.ip);
 		DatagramPacket sendData = new DatagramPacket(_data.getBytes(), _data.getBytes().length, address, this.port);
 		
+		socket.send(sendData);
+		socket.close();
 	}
 }
