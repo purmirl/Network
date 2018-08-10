@@ -14,4 +14,7 @@ package Function;
 public class HttpLinkTime {
 	public HttpLinkTime() {}
 	
+	public void calculation() {
+		
+	}
 }
