@@ -13,6 +13,12 @@ package Function;
  *
  */
 public class TCPServer {
-	public TCPServer() {}
+	private int serverPortNumber;
+	
+	public TCPServer() {
+		this.serverPortNumber = 801;
+	}
+	
+	
 	
 }
