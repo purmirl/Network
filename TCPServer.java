@@ -6,6 +6,8 @@
 
 package Function;
 
+import java.net.ServerSocket;
+
 /**
  * TCPServer Class
  * @author PeTrA
@@ -14,9 +16,11 @@ package Function;
  */
 public class TCPServer {
 	private int serverPortNumber;
+	private ServerSocket serverSocket;
 	
-	public TCPServer() {
-		this.serverPortNumber = 801;
+	public TCPServer(int _serverPortNumber, ServerSocket _serverSocket) {
+		this.serverPortNumber = _serverPortNumber;
+		this.serverSocket = _serverSocket;
 	}
 	
 	
