@@ -6,7 +6,12 @@
 
 package Function;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  * TCPServer Class
@@ -23,6 +28,13 @@ public class TCPServer {
 		this.serverSocket = _serverSocket;
 	}
 	
-	
+	public void tcpServerOpen() throws IOException {
+		Socket socket = this.serverSocket.accept();
+		InetAddress inetAddress = socket.getInetAddress();	//	inetAddress : The other side's ip address
+		
+		OutputStream out = socket.getOutputStream();
+		InputStream in = socket.getInputStream();
+		
+	}
 	
 }
