@@ -32,8 +32,8 @@ public class Manchester {
 	/**
 	 * Manchester Encoding Logic.
 	 * Digital data -> Digital signal.
-	 * If digital data is 0 : digital signal is downward transition. ก้
-	 * If digital data is 1 : digital signal is upward transition. ก่
+	 * If digital data is 0 : digital signal is downward transition. ยกรฉ
+	 * If digital data is 1 : digital signal is upward transition. ยกรจ
 	 * ------
 	 * @param digitalData
 	 * @return
