@@ -14,7 +14,7 @@ package Function;
  *  -->> The basic encryption modul of wireless network computing.
  *  . IEEE 802.11
  *  . Using RC4 encryption module. 
- *  . Using IV (Initial Vector) with shared WEP key. -->> RC4 Algorithm --> Key stream.
+ *  . Using IV (Initial Vector) with shared WEP key. -->> RC4 Algorithm -->> Key stream.
  *  . Using ICV (Integrity Check Value) for integrity verification.
  *  . (Key Stream ) XOR (plaintext + ICV) -->> cryptogram.
  *  . Data : IV + cryptogram.
