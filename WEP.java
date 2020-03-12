@@ -25,5 +25,17 @@ package Function;
  * WEP is dangerous module becasue of vulnerability.
  */
 public class WEP {
+	/**
+	 * value
+	 */
+	private byte[] IV;
+	private byte[] ICV;
+	private byte[] WEP_KEY;
+	private byte[] PLAINTEXT;
+	private byte[] DATA;
 	
+	/**
+	 * init function
+	 */
+	public WEP() {}
 }
