@@ -77,4 +77,36 @@ public class WEP {
 	public byte[] getPlaintText() {
 		return this.PLAINTEXT;
 	}
+	
+	private byte[] XOR(byte[] _a, byte[] _b) {
+		/**
+		 * XOR function is needed
+		 */
+		byte[] result = null;
+		return result;
+	}
+	
+	private byte[] RC4(byte[] _a, byte[] _b) {
+		/**
+		 * RC4 function is needed
+		 */
+		byte[] result = null;
+		return result;
+	}
+	
+	private byte[] attachByte(byte[] _a, byte[] _b) {
+		/**
+		 * attach byte function
+		 */
+		byte[] result = null;
+		System.arraycopy(_a, 0, result, 0, _a.length);
+		System.arraycopy(_b, 0, result, _a.length, _b.length);
+		return result;
+	}
+	
+	private byte[] Result() {
+		byte[] result = null;
+		result = XOR(attachByte(this.PLAINTEXT, this.ICV), RC4(this.IV, this.WEP_KEY));
+		return result;
+	}
 }
