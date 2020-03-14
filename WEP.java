@@ -32,10 +32,49 @@ public class WEP {
 	private byte[] ICV;
 	private byte[] WEP_KEY;
 	private byte[] PLAINTEXT;
+	/**
+	 * result data
+	 */
 	private byte[] DATA;
 	
 	/**
 	 * init function
 	 */
 	public WEP() {}
+	
+	public void setIV(byte[] _iv) {
+		this.IV = _iv;
+		return;
+	}
+	
+	public byte[] getIV() {
+		return this.IV;
+	}
+	
+	public void setICV(byte[] _icv) {
+		this.ICV = _icv;
+		return;
+	}
+	
+	public byte[] getICV() {
+		return this.ICV;
+	}
+	
+	public void setWepKey(byte[] _wepKey) {
+		this.WEP_KEY = _wepKey;
+		return;
+	}
+	
+	public byte[] getWepKey() {
+		return this.WEP_KEY;
+	}
+	
+	public void setPlaintText(byte[] _plaintText) {
+		this.PLAINTEXT = _plaintText;
+		return;
+	}
+	
+	public byte[] getPlaintText() {
+		return this.PLAINTEXT;
+	}
 }
