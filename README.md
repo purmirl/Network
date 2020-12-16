@@ -1,5 +1,17 @@
 # Network
 -----------------------------------------
-Network Introduce Project.<p>
-* The basic Network function's Pseudo code. <p>
-* IT Network Research & Study <p>
+_Network Research_   
+_Copyright 2018~ PeTrA. All rights reserved._   
+## Introduce
+This repository is consists of 1)basic network function's pseudo code, 2)network protocol's pseudo code, 3)jnetpcap tutorial code. There is not large program project, but pseudo code bundle for network study & programming and etc.   
+## Range of dig
+This repository is researching all of the network range. Following the OSI Network Systems(OSI 7 Layer).   
+* Layer 7 : Application Layer   
+* Layer 6 : Present Layer   
+* Layer 5 : Session Layer   
+* Layer 4 : Transport Layer   
+* Layer 3 : Network Layer   
+* Layer 2 : Data Link Layer   
+* Layer 1 : Physical Layer   
+
+
