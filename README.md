@@ -13,7 +13,7 @@ The network protocol's pseudo code part treats limited and integrated range. Fir
 * _Protocol Pseudo Code Range_   
 ![image_02_protocolpseudocoderange](https://user-images.githubusercontent.com/33143731/102501069-5b06c180-40c0-11eb-96d0-3bf05b5a3f98.png)   
 
-Last, The repository treats the Jnetpcap Library in Java, that is pcap library.   
+Last, This repository treats the Jnetpcap Library in Java, that is pcap library.   
 
 
 
