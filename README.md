@@ -8,6 +8,7 @@ This repository is consists of 1_basic network function's pseudo code, 2_network
 This repository is researching all of the network range. Following the International Organization for Standardization(ISO) Network Systems / Open Systems Interconnection Reference Model(OSI) 7 Layer.   
 * _OSI 7 Layer Structure_      
 ![image_01_osi7layer](https://user-images.githubusercontent.com/33143731/102461435-b4a0c900-408b-11eb-8dae-cfc99eb14f75.png)   
+The network protocol's pseudo code part treats limited and integrated range. First, not treats Physical Layer because of the natural link area. And combines Session Layer, Presentation Layer, Application Layer. These layers are collectively classified as L5.   
 
 
 
