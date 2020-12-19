@@ -27,7 +27,7 @@ import java.util.Arrays;
  *  https://en.wikipedia.org/wiki/High-Level_Data_Link_Control
  *  http://www.ktword.co.kr/abbr_view.php/abbr_view.php?m_temp1=89&m_search=%ED%95%98
  */
-public class Hdlc {
+public class HDLC {
 	/**
 	 * Stream value.
 	 */
@@ -63,7 +63,7 @@ public class Hdlc {
 	 */
 	private int parsingBufferNumber;
 	
-	public Hdlc(byte[] _byteStream) {
+	public HDLC(byte[] _byteStream) {
 		init();
 		parsingByteStream(_byteStream);
 	}
