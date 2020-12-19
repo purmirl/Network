@@ -11,8 +11,8 @@ package Function;
  * @author PeTrA
  *
  */
-public class HttpLinkTime {
-	public HttpLinkTime() {}
+public class HTTPLinkTime {
+	public HTTPLinkTime() {}
 	
 	public void calculation() {
 		
