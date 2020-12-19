@@ -20,7 +20,7 @@ package Protocol;
  *  https://en.wikipedia.org/wiki/User_Datagram_Protocol
  *  http://www.ktword.co.kr/abbr_view.php?m_temp1=323
  */
-public class Udp {
+public class UDP {
 	/**
 	 * Header value.
 	 */
