@@ -13,6 +13,9 @@ server_ip_address = ""
 server_port_number = ""
 server_port_number = int(server_port_number)
 
+# set server address
+server_address = (server_ip_address, server_port_number)
+
 # max data size
 max_client_data_size = 1024
 
@@ -23,8 +26,8 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_socket.bind((server_ip_address, server_port_number))
 
 # receive client data
-client_data, client_ip_address = server_socket.recvfrom(max_client_data_size)
+client_data, client_address = server_socket.recvfrom(max_client_data_size)
 
 # send server data
 server_send_data = ""
-server_socket.sendto(server_send_data.encode("utf-8"), client_ip_address)
+server_socket.sendto(server_send_data.encode("utf-8"), client_address)
